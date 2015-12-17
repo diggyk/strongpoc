@@ -28,7 +28,7 @@ class PointOfContactSerializer(serializers.ModelSerializer):
 
     def to_representation(self, obj):
         params = self.context['request'].query_params
-        expand = params.get('expand')
+        expand = params.getlist('expand')
 
         return obj.to_dict(expand=expand)
 
