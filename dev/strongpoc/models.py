@@ -20,7 +20,7 @@ class BaseModel(models.Model):
 
 
 class Team(BaseModel):
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=64, unique=True)
 
     def __unicode__(self):
         return self.name
@@ -36,7 +36,7 @@ class Team(BaseModel):
 
 
 class ServiceProvider(BaseModel):
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=64, unique=True)
 
     def __unicode__(self):
         return self.name
@@ -52,7 +52,7 @@ class ServiceProvider(BaseModel):
 
 
 class ContactType(BaseModel):
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=64, unique=True)
 
     def __unicode__(self):
         return self.name
@@ -74,7 +74,7 @@ class PointOfContact(BaseModel):
     contact_type = models.ForeignKey(ContactType, related_name="pocs")
 
     def __unicode__(self):
-        return "Contact {} for {} {} at {}".format(
+        return "{} can be reached by {} via {} at {}".format(
             self.team, self.service_provider, self.contact_type, self.value
         )
 
@@ -90,15 +90,15 @@ class PointOfContact(BaseModel):
             "value": self.value,
             "team": (
                 self.team_id if "teams" not in expand
-                else self.team.to_dict(expand)
+                else self.team.to_dict(set(expand))
             ),
             "service_provider": (
                 self.service_provider_id if "service_providers" not in expand
-                else self.service_provider.to_dict(expand)
+                else self.service_provider.to_dict(set(expand))
             ),
             "contact_type":  (
                 self.contact_type_id if "contact_types" not in expand
-                else self.contact_type.to_dict(expand)
+                else self.contact_type.to_dict(set(expand))
             )
         }
 

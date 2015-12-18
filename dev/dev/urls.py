@@ -21,8 +21,8 @@ from strongpoc import views
 
 router = routers.DefaultRouter()
 router.register("teams", views.TeamViewSet)
-router.register("contact-types", views.ContactTypeViewSet)
-router.register("service-providers", views.ServiceProviderViewSet)
+router.register("contact_types", views.ContactTypeViewSet)
+router.register("service_providers", views.ServiceProviderViewSet)
 router.register("pocs", views.PointOfContactViewSet)
 
 urlpatterns = [
