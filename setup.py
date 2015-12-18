@@ -94,7 +94,7 @@ kwargs = {
     },
     'entry_points': """
         [console_scripts]
-        nsot-server=nsot.util:main
+        strongpoc=strongpoc.cli:main
     """,
     'classifiers': [
         'Programming Language :: Python',
