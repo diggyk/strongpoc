@@ -50,3 +50,7 @@ docs/_build
 # Node
 /npm-debug.log
 /node_modules
+
+# dev bins
+sp-cli
+strongpoc-srv

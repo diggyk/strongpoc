@@ -14,7 +14,7 @@ from setuptools.command.sdist import sdist as SDistCommand
 
 ROOT = os.path.realpath(os.path.join(os.path.dirname(__file__)))
 
-execfile('dev/strongpoc/version.py')
+execfile('strongpoc/version.py')
 
 with open('requirements.txt') as requirements:
     required = requirements.read().splitlines()
@@ -88,13 +88,14 @@ kwargs = {
     'tests_require': ['pytest'],
     'cmdclass': {
         'test': PyTest,
-        'build_static': BuildStatic,
-        'develop': DevelopWithBuildStatic,
-        'sdist': SDistWithBuildStatic,
+        # 'build_static': BuildStatic,
+        # 'develop': DevelopWithBuildStatic,
+        # 'sdist': SDistWithBuildStatic,
     },
     'entry_points': """
         [console_scripts]
         strongpoc=strongpoc.cli:main
+        strongpoc-srv=strongpoc.server:main
     """,
     'classifiers': [
         'Programming Language :: Python',
