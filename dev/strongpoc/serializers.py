@@ -22,7 +22,7 @@ class ContactTypeSerializer(serializers.ModelSerializer):
 
 class PointOfContactSerializer(serializers.ModelSerializer):
     # team = serializers.StringRelatedField()
-    team = TeamSerializer()
+    # team = TeamSerializer()
     # service_provider = ServiceProviderSerializer()
     # contact_type = ContactTypeSerializer()
 

@@ -1,6 +1,6 @@
 .idea
 *.pyc
-*.sqlite
+*.sqlite*
 *.sqlite-journal
 
 # Bower Components
