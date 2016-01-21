@@ -595,7 +595,7 @@ def parse_cli_args():
 
 def main():
     args = parse_cli_args()
-    # settings.update_from_config(args.config)
+    settings.update_from_config(args.config)
 
     if args.strongpoc_server:
         settings.strongpoc_server = args.strongpoc_server
