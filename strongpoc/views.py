@@ -32,4 +32,11 @@ class PointOfContactViewSet(viewsets.ModelViewSet):
     queryset = models.PointOfContact.objects.all()
     serializer_class = serializers.PointOfContactSerializer
     filter_backends = (filters.DjangoFilterBackend,)
-    filter_fields = ('team', 'contact_type', 'service_provider')
+    filter_fields = (
+        'team',
+        'team__name',
+        'contact_type',
+        'contact_type__name',
+        'service_provider'
+        'service_provider__name'
+    )
