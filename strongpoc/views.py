@@ -37,6 +37,6 @@ class PointOfContactViewSet(viewsets.ModelViewSet):
         'team__name',
         'contact_type',
         'contact_type__name',
-        'service_provider'
+        'service_provider',
         'service_provider__name'
     )
